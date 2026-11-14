@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tell&amp;Kiss — Kirim Surat Cinta Anonim &amp; Lagu Spotify</title>
+  
+  <!-- Google Fonts: Lora, Playfair Display, Caveat & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand-logo">
+        <!-- Custom SVG Logo Kucing dalam Kotak -->
+        <svg class="brand-svg" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Tell&amp;Kiss">
+          <path d="M32 45L34 15C34.3 12 37.5 11 39.5 13L50 24H70L80.5 13C82.5 11 85.7 12 86 15L88 45H32Z" fill="#0A1931"/>
+          <circle cx="48" cy="36" r="5.5" fill="#F97316"/>
+          <circle cx="72" cy="36" r="5.5" fill="#F97316"/>
+          <path d="M27 52H93L106 66C108 68 106.5 71 103.5 71H93V93C93 97.4 89.4 101 85 101H35C30.6 101 27 97.4 27 93V71H16.5C13.5 71 12 68 14 66L27 52Z" fill="#F97316"/>
+          <path d="M27 72H43C48 72 51 69 54 65L60 56L66 65C69 69 72 72 77 72H93V80H77C70 80 65 76 60 68C55 76 50 80 43 80H27V72Z" fill="#0A1931"/>
+        </svg>
+        <span class="brand-text">Tell<span class="brand-amp">&amp;</span>Kiss</span>
+      </a>
+      <div class="nav-links">
+        <a href="#tulis-surat" class="nav-link">Tulis Surat</a>
+        <a href="#arsip-surat" class="nav-link">Arsip Surat</a>
+      </div>
+      <a href="#tulis-surat" class="btn-nav">
+        <i data-lucide="feather" class="icon-sm"></i>
+        <span>Kirim Surat</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i data-lucide="sparkles" class="icon-xs"></i>
+        <span>100% Anonim • Terhubung ke Spotify</span>
+      </div>
+      <h1 class="hero-title">
+        Sampaikan rasa yang tak terucap, <br>
+        <span class="hero-highlight">alunkan lewat nada favoritnya.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Tulis surat rahasia untuk kekasih atau seseorang yang kamu kagumi tanpa perlu mencantumkan nama, lalu sematkan satu lagu Spotify yang mewakili perasaanmu.
+      </p>
+      <div class="hero-actions">
+        <a href="#tulis-surat" class="btn-primary">
+          <i data-lucide="heart" class="icon-sm"></i>
+          <span>Mulai Tulis Surat</span>
+        </a>
+        <a href="#arsip-surat" class="btn-secondary">
+          <i data-lucide="mail-open" class="icon-sm"></i>
+          <span>Jelajahi Arsip Surat</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Creator Section -->
+  <section id="tulis-surat" class="section-creator">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Rangkai Surat &amp; Pilih Lagu</h2>
+        <p class="section-desc">Salin tautan lagu dari aplikasi atau web Spotify, tempel di bawah, dan lihat tampilan suratmu secara langsung.</p>
+      </div>
+
+      <div class="creator-grid">
+        <!-- Form Input -->
+        <form id="letterForm" class="form-card">
+          <div class="form-group">
+            <label for="recipientInput" class="form-label">Untuk Siapa (Nama / Inisial)</label>
+            <div class="input-wrapper">
+              <i data-lucide="user" class="input-icon"></i>
+              <input type="text" id="recipientInput" required maxlength="35" placeholder="Contoh: Raka, Seseorang di Jakarta, atau A." class="form-input with-icon" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label-row">
+              <label for="messageInput" class="form-label">Isi Pesan Rahasia</label>
+              <span id="charCount" class="char-counter">0 / 450</span>
+            </div>
+            <textarea id="messageInput" required rows="4" maxlength="450" placeholder="Tuliskan apa yang selama ini ingin kamu sampaikan kepadanya..." class="form-textarea"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="label-row">
+              <label for="spotifyInput" class="form-label">
+                <i data-lucide="music" class="icon-xs text-green"></i>
+                <span>Tautan Lagu Spotify</span>
+              </label>
+              <button type="button" id="sampleLinkBtn" class="btn-link">Gunakan contoh lagu</button>
+            </div>
+            <div class="input-wrapper">
+              <i data-lucide="link" class="input-icon"></i>
+              <input type="text" id="spotifyInput" required placeholder="Tempel link Spotify (https://open.spotify.com/track/...)" class="form-input with-icon" />
+            </div>
+            <p id="spotifyStatus" class="status-text">
+              Buka Spotify → Klik Bagikan (Share) → Salin Link Lagu → Tempel di sini.
+            </p>
+          </div>
+
+          <!-- Font Style Selector -->
+          <div class="form-group">
+            <label class="form-label">Pilih Gaya Tulisan Surat</label>
+            <div class="font-selector-grid" id="fontSelector">
+              <button type="button" data-font="handwriting" class="font-btn active">
+                <span class="font-preview-handwriting">Tulisan Tangan</span>
+                <span class="font-sub">Hangat &amp; Personal</span>
+              </button>
+              <button type="button" data-font="serif" class="font-btn">
+                <span class="font-preview-serif">Serif Klasik</span>
+                <span class="font-sub">Puitis &amp; Elegan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paper Theme Selector -->
+          <div class="form-group">
+            <label class="form-label">Pilih Warna Kertas Surat</label>
+            <div class="theme-selector-grid" id="themeSelector">
+              <button type="button" data-theme="pink" class="theme-btn active">
+                <span class="theme-dot bg-pink"></span>
+                <span>Soft Pink</span>
+              </button>
+              <button type="button" data-theme="cream" class="theme-btn">
+                <span class="theme-dot bg-cream"></span>
+                <span>Cream</span>
+              </button>
+              <button type="button" data-theme="lavender" class="theme-btn">
+                <span class="theme-dot bg-lavender"></span>
+                <span>Lavender</span>
+              </button>
+              <button type="button" data-theme="sage" class="theme-btn">
+                <span class="theme-dot bg-sage"></span>
+                <span>Sage</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <i data-lucide="send" class="icon-sm"></i>
+            <span>Kirim Surat Secara Anonim</span>
+          </button>
+        </form>
+
+        <!-- Live Preview -->
+        <div class="preview-wrapper">
+          <div class="preview-header">
+            <span class="preview-badge">
+              <span class="pulse-dot"></span>
+              Pratinjau Surat Langsung
+            </span>
+            <span class="preview-note">Identitas pengirim disembunyikan</span>
+          </div>
+
+          <div id="previewCard" class="letter-card theme-pink preview-card-box">
+            <div>
+              <div class="card-top">
+                <div>
+                  <span class="card-label">Untuk:</span>
+                  <h3 id="previewRecipient" class="card-recipient">Seseorang yang Spesial</h3>
+                </div>
+                <span class="anon-badge">
+                  <i data-lucide="eye-off" class="icon-xs"></i> Anonim
+                </span>
+              </div>
+
+              <div class="card-body">
+                <p id="previewMessage" class="card-message font-handwriting">
+                  "Setiap kali lagu ini terputar, entah kenapa selalu wajahmu yang pertama kali terlintas di kepalaku. Semoga harimu selalu baik..."
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div id="previewSpotifyContainer" class="spotify-box">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </div>
+
+              <div class="card-footer">
+                <span class="brand-mini">
+                  <svg class="mini-svg" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 45L34 15C34.3 12 37.5 11 39.5 13L50 24H70L80.5 13C82.5 11 85.7 12 86 15L88 45H32Z" fill="#0A1931"/>
+                    <circle cx="48" cy="36" r="5.5" fill="#F97316"/>
+                    <circle cx="72" cy="36" r="5.5" fill="#F97316"/>
+                    <path d="M27 52H93L106 66C108 68 106.5 71 103.5 71H93V93C93 97.4 89.4 101 85 101H35C30.6 101 27 97.4 27 93V71H16.5C13.5 71 12 68 14 66L27 52Z" fill="#F97316"/>
+                    <path d="M27 72H43C48 72 51 69 54 65L60 56L66 65C69 69 72 72 77 72H93V80H77C70 80 65 76 60 68C55 76 50 80 43 80H27V72Z" fill="#0A1931"/>
+                  </svg>
+                  Tell<span class="brand-amp">&amp;</span>Kiss
+                </span>
+                <span>Baru saja</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archive / Browse Letters Section -->
+  <section id="arsip-surat" class="section-archive">
+    <div class="container">
+      <div class="archive-header">
+        <div>
+          <h2 class="section-title">Arsip Surat &amp; Lagu</h2>
+          <p class="section-desc">Cari namamu atau inisialmu. Siapa tahu seseorang menitipkan lagu untukmu di sini.</p>
+        </div>
+
+        <div class="search-wrapper">
+          <i data-lucide="search" class="input-icon"></i>
+          <input type="text" id="searchInput" placeholder="Cari nama penerima atau isi pesan..." class="form-input with-icon" />
+        </div>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="filter-bar" id="filterBar">
+        <button data-filter="all" class="filter-chip active">Semua Surat</button>
+        <button data-filter="pink" class="filter-chip">Soft Pink</button>
+        <button data-filter="cream" class="filter-chip">Cream Vintage</button>
+        <button data-filter="lavender" class="filter-chip">Lavender</button>
+        <button data-filter="sage" class="filter-chip">Sage Green</button>
+      </div>
+
+      <!-- Letters Grid -->
+      <div id="lettersGrid" class="letters-grid"></div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">
+          <i data-lucide="mail-question"></i>
+        </div>
+        <h3>Surat tidak ditemukan</h3>
+        <p>Belum ada surat dengan kata kunci tersebut. Coba cari nama lain atau jadilah yang pertama menulisnya!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="brand-logo">
+        <svg class="brand-svg-sm" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 45L34 15C34.3 12 37.5 11 39.5 13L50 24H70L80.5 13C82.5 11 85.7 12 86 15L88 45H32Z" fill="#0A1931"/>
+          <circle cx="48" cy="36" r="5.5" fill="#F97316"/>
+          <circle cx="72" cy="36" r="5.5" fill="#F97316"/>
+          <path d="M27 52H93L106 66C108 68 106.5 71 103.5 71H93V93C93 97.4 89.4 101 85 101H35C30.6 101 27 97.4 27 93V71H16.5C13.5 71 12 68 14 66L27 52Z" fill="#F97316"/>
+          <path d="M27 72H43C48 72 51 69 54 65L60 56L66 65C69 69 72 72 77 72H93V80H77C70 80 65 76 60 68C55 76 50 80 43 80H27V72Z" fill="#0A1931"/>
+        </svg>
+        <span class="brand-text-sm">Tell<span class="brand-amp">&amp;</span>Kiss</span>
+      </div>
+      <p class="footer-copy">
+        Dibuat oleh Simon Otto.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal Detail Surat -->
+  <div id="letterModal" class="modal-overlay hidden">
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+    <div id="modalCard" class="modal-content theme-pink">
+      <button id="closeModalBtn" class="modal-close-btn" aria-label="Tutup">
+        <i data-lucide="x" class="icon-sm"></i>
+      </button>
+
+      <div class="modal-header">
+        <span class="card-label">Surat Anonim Untuk:</span>
+        <h3 id="modalRecipient" class="modal-recipient">Nama Penerima</h3>
+      </div>
+
+      <div class="modal-body">
+        <p id="modalMessage" class="modal-message font-handwriting"></p>
+      </div>
+
+      <div id="modalSpotify" class="spotify-box"></div>
+
+      <div class="modal-footer">
+        <span id="modalDate" class="modal-date">Dikirim hari ini</span>
+        <button id="copyShareBtn" class="btn-share">
+          <i data-lucide="share-2" class="icon-xs"></i>
+          <span>Salin Tautan Surat</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <i data-lucide="check-circle-2" class="icon-sm text-green"></i>
+    <span id="toastMessage">Surat berhasil dikirim!</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
